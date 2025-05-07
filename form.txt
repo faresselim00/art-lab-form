@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Art Lab Hub – Workshop Registration</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffdee9, #b5fffc);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      color: #ff4081;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    form {
+      background-color: #fffce8;
+      border: 4px dashed #ffa726;
+      padding: 25px;
+      border-radius: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #333;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid #4caf50;
+      margin-top: 5px;
+      font-size: 15px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    input[type="submit"] {
+      margin-top: 20px;
+      background-color: #4caf50;
+      color: white;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    input[type="submit"]:hover {
+      background-color: #43a047;
+    }
+    #qrcode {
+      margin-top: 30px;
+    }
+    h3 {
+      color: #6a1b9a;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Art Lab Hub</h1>
+  <p><strong>Workshop Registration Form for Parents</strong></p>
+
+  <form action="https://example.com/submit-registration" method="POST">
+    <label for="parentName">Parent's Name:</label>
+    <input type="text" id="parentName" name="parentName" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="childName">Child's Full Name:</label>
+    <input type="text" id="childName" name="childName" required>
+
+    <label for="age">Child's Age:</label>
+    <input type="number" id="age" name="age" required min="3">
+
+    <label for="school">Child's School:</label>
+    <input type="text" id="school" name="school">
+
+    <label for="medical">Any Allergies or Medical Notes:</label>
+    <textarea id="medical" name="medical" rows="3"></textarea>
+
+    <label for="interests">Child's Art Interests:</label>
+    <textarea id="interests" name="interests" rows="3"></textarea>
+
+    <input type="submit" value="Register">
+  </form>
+
+  <h3>?? Scan to Register on Your Phone!</h3>
+  <div id="qrcode"></div>
+
+  <script>
+    const formURL = window.location.href; // or use a specific URL like "https://artlabhub.com/register"
+    QRCode.toCanvas(document.getElementById('qrcode'), formURL, {
+      width: 200,
+      color: {
+        dark: "#000000",
+        light: "#ffffff"
+      }
+    }, function (error) {
+      if (error) console.error(error);
+    });
+  </script>
+
+</body>
+</html>
